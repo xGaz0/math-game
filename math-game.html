@@ -119,8 +119,8 @@ function displayQuestion(){
   if(q.op==="sciMult"){
     if(typeof q.a === "string" && q.a.includes("× 10^")){
       let [mA,eA] = q.a.split("× 10^"), [mB,eB] = q.b.split("× 10^");
-      let numA = Math.round( parseFloat(mA) * Math.pow(10, parseInt(eA)) * 100) / 100;
-      let numB =  Math.round( parseFloat(mB) * Math.pow(10, parseInt(eB)) * 100) / 100;
+      let numA = Math.round( parseFloat(mA) * Math.pow(10, parseInt(eA)) * 10000000) / 10000000;
+      let numB =  Math.round( parseFloat(mB) * Math.pow(10, parseInt(eB)) * 10000000) / 10000000;
       questionText = `${numA} × ${numB} = ?`;
     } else { questionText = `${q.a} × ${q.b} = ?`; }
   }
