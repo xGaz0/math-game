@@ -54,6 +54,12 @@ let startTime, timerInterval;
 function shuffle(arr) { for (let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];} return arr; }
 function rand(min, max) { return Math.floor(Math.random() *(max - min + 1)) + min; }
 
+ function normal(x){
+ 
+    if (Math.abs(x) < 1) return parseFloat(x.toFixed(6));
+   return x;
+ }
+ 
 function generateQuestionWithOptions() {
   const ops = ["+", "-", "×", "÷", "sciMult"];
   const op = ops[Math.floor(Math.random() * ops.length)];
@@ -74,8 +80,8 @@ function generateQuestionWithOptions() {
     options = [answerText];
     while (options.length < 4) {
       let opt = options[options.length-1] / 10;
-      if (!options.includes(opt)) options.push(opt);
-      else { let fallback = opt / 10; if (!options.includes(fallback)) options.push(fallback); }
+      if (!options.includes(normal(opt))) options.push(normal(opt));
+      else { let fallback = opt / 10; if (!options.includes(normal(fallback))) options.push(normal(fallback)); }
     }
     shuffle(options);
     return {a,b,op,ans:answerText,options};
