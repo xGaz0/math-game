@@ -154,7 +154,7 @@ function selectAnswer(selected, idxClicked){
   if(idxClicked!==idxCorrect) optionButtons[idxClicked].classList.add("reveal-wrong");
   userHistory.push({question: formatQuestionText(q), userAnswer:selected, correctAnswer:expected, isCorrect});
   if(isCorrect) correct++; else incorrect++;
-  setTimeout(()=>{ current++; displayQuestion(); }, 800);
+  setTimeout(()=>{ current++; displayQuestion(); }, 200);
 }
 
 function formatQuestionText(q){
